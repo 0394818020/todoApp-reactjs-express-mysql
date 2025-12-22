@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 
 export default defineConfig({
-  plugins: [react],
+  plugins: [react()],
   root: path.resolve(__dirname),   // client folder
   base: './',                      // quan trọng để build relative path
   build: {
