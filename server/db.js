@@ -4,10 +4,14 @@ import dotenv from 'dotenv'
 dotenv.config();
 
 export default mysql.createPool({
-    database : process.env.DATABASE_NAME,
-    host : process.env.DATABASE_HOST,
-    password : process.env.DATABASE_PASS,
-    user : process.env.DATABASE_USER,
-    connectionLimit: 10,
-})
-
+  host: process.env.DATABASE_HOST,
+  user: process.env.DATABASE_USER,
+  password: process.env.DATABASE_PASS,
+  database: process.env.DATABASE_NAME,
+  port: process.env.DATABASE_PORT,
+  ssl: {
+    rejectUnauthorized: false
+  },
+  waitForConnections: true,
+  connectionLimit: 10,
+});
