@@ -33,17 +33,19 @@ function HomePage() {
     
 
     const tasksFetch = async () => {
-      const accounts = await taskServices.getAll() || [];
+      let accounts = await taskServices.getAll() || [];
 
         if (!accounts)
           return null;
 
-      setList(accounts.tasks || []);
+      const tasks = Array.isArray(accounts.tasks) ? accounts.tasks : [];
+
+      setList(tasks || []);
 
       let active = 0;
       let completed = 0;
 
-      accounts.tasks.forEach(task => {
+      tasks.forEach(task => {
         if (task.status === 'active')
           active++;
         if (task.status === 'completed')
