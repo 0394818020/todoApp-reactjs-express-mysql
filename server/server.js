@@ -22,7 +22,7 @@ const __dirname = path.dirname(__filename);
 
 app.use(taskRouter);
 
-const buildPath = path.join(__dirname, '../client/build');
+const buildPath = path.join(__dirname, '../client/dist');
 app.use(express.static(buildPath));
 
 app.get('*', (req, res) => {
