@@ -20,7 +20,7 @@ app.use(cors({
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-app.use(taskRouter);
+app.use('/api/tasks', taskRouter);
 
 const buildPath = path.join(__dirname, '../client/dist');
 app.use(express.static(buildPath));
