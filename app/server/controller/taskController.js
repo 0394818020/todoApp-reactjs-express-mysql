@@ -35,7 +35,7 @@ export default {
         try {
             const tasks = await task.getAll();
 
-            res.status(200).json({ tasks });
+            res.status(200).json({ tasks: Array.isArray(tasks) ? tasks : [] });
         } catch (err) {
             console.log(err);
             res.status(500).json({ serverError : "Lỗi server"});

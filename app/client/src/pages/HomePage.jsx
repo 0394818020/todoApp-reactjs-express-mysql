@@ -33,12 +33,12 @@ function HomePage() {
     
 
     const tasksFetch = async () => {
-      const accounts = await taskServices.getAll();
+      const accounts = await taskServices.getAll() || [];
 
         if (!accounts)
           return null;
 
-      setList(accounts.tasks);
+      setList(accounts.tasks || []);
 
       let active = 0;
       let completed = 0;
