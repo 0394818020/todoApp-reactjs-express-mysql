@@ -22,8 +22,16 @@ const __dirname = path.dirname(__filename);
 
 app.use('/api/tasks', taskRouter);
 
-const buildPath = path.join(__dirname, '../client/dist');
+const buildPath = path.resolve(__dirname, '../client/dist');
 app.use(express.static(buildPath));
+
+
+import fs from 'fs';
+
+console.log('buildPath:', buildPath);
+console.log('index.html exists:', fs.existsSync(path.join(buildPath, 'index.html')));
+
+
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(buildPath, 'index.html'));
