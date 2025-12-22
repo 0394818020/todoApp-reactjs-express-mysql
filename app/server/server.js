@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(cors({
-    origin: ['http://localhost:3000', 'http://localhost:5173', 'https://todo-api-production.up.railway.app']
+    origin: ['http://localhost:3000', 'http://localhost:5173', 'https://todo-api-production.up.railway.app', 'https://todoapp-reactjs-express-mysql-production.up.railway.app']
 }))
 
 const __filename = fileURLToPath(import.meta.url);
