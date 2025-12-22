@@ -10,9 +10,9 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path='*' element={<NotFound/>}/>
           <Route path='/' element={<Navigate to={'/homepage'}/>}/>
           <Route path='/homepage' element={<HomePage/>}/>
+          <Route path='*' element={<NotFound/>}/>
         </Routes>
       </BrowserRouter>
     </>
