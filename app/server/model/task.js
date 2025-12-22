@@ -16,7 +16,7 @@ export default {
     },
 
     update : async (id, title) => {
-        await db.promise().execute('UPDATE task SET title = ?, created_at = NOW() WHERE id = ?', [title, id]);
+        await db.promise().execute('UPDATE task SET title = ? WHERE id = ?', [title, id]);
     },
 
     finishTask : async (id) => {
