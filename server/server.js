@@ -4,6 +4,7 @@ import cors from 'cors'
 import dotenv from 'dotenv'
 import taskRouter from './routes/taskRouts.js';
 import path from 'path'
+import { fileURLToPath } from 'url';
 
 dotenv.config({ path : '.env'});
 
@@ -15,6 +16,9 @@ app.use(express.json());
 app.use(cors({
     origin: ['http://localhost:3000', 'http://localhost:5173']
 }))
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 app.use(taskRouter);
 
