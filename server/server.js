@@ -22,8 +22,6 @@ const __dirname = path.dirname(__filename);
 
 app.use(taskRouter);
 
-app.use(express.static(path.join(__dirname, 'client/build')));
-
 const buildPath = path.join(__dirname, '../client/build');
 app.use(express.static(buildPath));
 
