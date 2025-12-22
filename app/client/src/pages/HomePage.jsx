@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react'
 import { useState, useMemo } from 'react'
-import NotificationContext from '../components/Notification/NotificationContext';
-import Notification from '../components/Notification/Notification';
-import HeaderBar from '../components/HeaderBar/HeaderBar';
-import FunctionBar from '../components/FunctionBar/FunctionBar';
-import ManagerList from '../components/ManagerList/ManagerList';
-import FooterBar from '../components/FooterBar/FooterBar';
+import NotificationContext from '../components/Notification/NotificationContext.js';
+import Notification from '../components/Notification/Notification.jsx';
+import HeaderBar from '../components/HeaderBar/HeaderBar.jsx';
+import FunctionBar from '../components/FunctionBar/FunctionBar.jsx';
+import ManagerList from '../components/ManagerList/ManagerList.jsx';
+import FooterBar from '../components/FooterBar/FooterBar.jsx';
 import taskServices from '../services/taskServices.js';
 import DateFilter from '../components/DateFilter/DateFilter.jsx';
 

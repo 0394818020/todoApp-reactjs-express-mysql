@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import taskServices from '../../services/taskServices'
+import taskServices from '../../services/taskServices.js'
 import './ManagerList.scss'
 import TaskCard from '../ui/TaskCard/TaskCard.jsx'
 import EmptyTaskCard from '../ui/EmptyTaskCard/EmptyTaskCard.jsx'

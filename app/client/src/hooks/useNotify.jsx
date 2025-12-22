@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useContext } from 'react'
-import NotificationContext from '../components/Notification/NotificationContext'
+import NotificationContext from '../components/Notification/NotificationContext.js'
 
 
 function useNotify() {
