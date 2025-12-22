@@ -3,6 +3,7 @@ import db from './db.js';
 import cors from 'cors'
 import dotenv from 'dotenv'
 import taskRouter from './routes/taskRouts.js';
+import path from 'path'
 
 dotenv.config({ path : '.env'});
 
@@ -16,6 +17,15 @@ app.use(cors({
 }))
 
 app.use(taskRouter);
+
+app.use(express.static(path.join(__dirname, 'client/build')));
+
+const buildPath = path.join(__dirname, '../client/build');
+app.use(express.static(buildPath));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(buildPath, 'index.html'));
+});
 
 db.getConnection((err, result) => {
     if (err) {
