@@ -1,0 +1,41 @@
+.EmptyTaskCard {
+    width: 740px;
+    height: 340px;
+    align-content: center;
+
+
+    .Cycle {
+        margin-top: 40px;
+        width: 160px;
+        height: 160px;
+        background: black;
+        justify-self: center;
+        align-content: center;
+        border-radius: 50%;
+        animation: changeColor 3s linear infinite;
+
+        background: linear-gradient(135deg,#6dd5fa,#a18cd1,#fbc2eb);
+
+        .Cycle1 {
+            width: 130px;
+            height: 130px;
+            background: #ecfcff;
+            justify-self: center;
+            border-radius: 50%;
+        }
+    }
+
+    p {
+        justify-self: center;
+        font-size: 20px;
+    }
+}
+
+@keyframes changeColor {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

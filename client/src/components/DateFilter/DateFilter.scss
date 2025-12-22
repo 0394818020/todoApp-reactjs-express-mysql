@@ -1,0 +1,81 @@
+.DateFilter {
+    width: 740px;
+    height: 64px;
+    justify-self: center;
+    display: flex;
+    justify-content: right;
+    padding-top: 10px;
+    font-size: 18px;
+    p {
+        cursor: pointer;
+    }
+
+    img {
+        pointer-events: none; 
+    }
+    
+    .DateFilter-select-box {
+        width: 110px;
+        height: 32px;
+        background-color: white;
+        padding-left: 30px;
+        display: flex;
+        align-items: center;
+        position: relative;
+        border: 1px solid #e3c1ff;
+        border-radius: 6px 6px 0 0;
+        cursor: pointer;
+
+        img {
+            position: absolute;
+            right: 8px;
+        }
+        
+    }
+
+    .DateFilter-select-options {
+        height: 64px;
+        animation: golongdown 0.3s;
+
+        .option {
+            width: 110px;
+            height: 32px;
+            padding-left: 30px;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            margin: 0;
+            border: 1px solid #e3c1ff;
+            position: relative;
+
+            &:hover {
+                background-color: rgb(235, 235, 235);
+            }
+
+            img {
+                position: absolute;
+                right: 8px;
+            }
+        }
+
+        .bottom {
+            animation: golongdown 0.3s;
+        }
+
+        .top {
+            border-radius: 6px 6px 0 0;
+            border-bottom: none;
+        }
+
+    }
+}
+
+@keyframes golongdown {
+    0% {
+        height: 0px;
+    }
+
+    100% {
+        height: 32px;
+    }
+}

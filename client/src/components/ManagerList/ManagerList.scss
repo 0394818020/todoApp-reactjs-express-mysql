@@ -1,0 +1,19 @@
+.ManagerList {
+  width: 740px;
+  height: 340px;
+  justify-self: center;
+  border: none;
+  border-bottom: 2px solid #e3c1ff;
+  border-top: 2px solid #e3c1ff;
+
+
+  overflow-y: scroll; 
+
+  padding-left: 10px;  
+  padding-right: 10px;
+  padding-bottom: 20px;
+}
+
+.ManagerList::-webkit-scrollbar {
+  display: none;
+}

@@ -1,0 +1,20 @@
+.HeaderBar {
+    justify-self: center;
+    height: 130px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    h1 {
+        text-align: center;
+        color : rgb(127, 30, 255);
+        font-size: 42px;
+        text-shadow: 
+            0 0 2px rgb(127, 30, 255),
+            0 0 4px rgb(162, 96, 248);
+    }
+
+    p {
+        margin-top: -15px;
+        text-align: center;
+        font-size: 18px;
+    }
+}
