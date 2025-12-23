@@ -77,7 +77,7 @@ function HomePage() {
           return true;
       }
     })
-
+    
     if (mode === 'ascending')
       filterTask = filterTask.sort((a, b) => new Date(a.created_at) - new Date(b.created_at));
     else
