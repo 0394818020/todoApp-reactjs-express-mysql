@@ -6,22 +6,17 @@ function FooterBar({ numberOfTask }) {
 
   const { active, completed } = numberOfTask;
 
-  const [slogan, setSlogan] = useState(``)
+  let slogan = '';
 
-  useEffect(() => {
     if (active === 0 && completed > 0)
-      setSlogan(`Tuyệt vời! Bạn đã hoàn thành tất cả thử thách✋🥳🤚`);
+      slogan = `Tuyệt vời! Bạn đã hoàn thành tất cả thử thách✋🥳🤚`;
 
     else if (active >= 0 && completed === 0)
-      setSlogan(`Hãy cùng hoàn thành những thử thách đầu tiên nào 🥵`);
+      slogan = `Hãy cùng hoàn thành những thử thách đầu tiên nào 🥵`;
 
     else if (active > 0 && completed > 0)
-      setSlogan(`Tuyệt vời! Bạn đã hoàn thành ${completed}/${active + completed} thử thách, cố lên nào 🔥`);   
-
-  }, [active, completed])
-
+      slogan = `Tuyệt vời! Bạn đã hoàn thành ${completed}/${active + completed} thử thách, cố lên nào 🔥`   
   
-
   return (
     <div className='FooterBar'>
       <FooterP p={slogan}/>

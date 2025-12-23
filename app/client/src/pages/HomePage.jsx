@@ -12,15 +12,13 @@ import DateFilter from '../components/DateFilter/DateFilter.jsx';
 function HomePage() {
     const [noti, setNoti] = useState({ type : '', message : '' });
 
-    const [numberOfTask, setNumberOfTask] = useState({ active : 0, completed : 0 })
+    // const [numberOfTask, setNumberOfTask] = useState({ active : 0, completed : 0 })
 
     const [filter, setFilter] = useState('all');
 
     const [list, setList] = useState([]);
 
     const [mode, setMode] = useState('ascending');
-
-    console.log(1)
 
     // function
     const setChange = () => {
@@ -42,18 +40,32 @@ function HomePage() {
 
       setList(tasks || []);
 
+      // let active = 0;
+      // let completed = 0;
+
+      // tasks.forEach(task => {
+      //   if (task.status === 'active')
+      //     active++;
+      //   if (task.status === 'completed')
+      //     completed++;
+      // })
+
+      // setNumberOfTask({ active : active, completed : completed })
+    }
+
+    const taskStatus = useMemo(() => {
       let active = 0;
       let completed = 0;
 
-      tasks.forEach(task => {
+      list.forEach(task => {
         if (task.status === 'active')
           active++;
         if (task.status === 'completed')
           completed++;
       })
 
-      setNumberOfTask({ active : active, completed : completed })
-    }
+      return { active , completed };
+    }, [list])
 
     let filterTask = list.filter(task => {
       switch (filter) {
@@ -77,10 +89,10 @@ function HomePage() {
       <NotificationContext.Provider value={{ noti, setNoti }}>
         <Notification/>
         <HeaderBar/>
-        <FunctionBar filter={filter} setFilter={setFilter} numberOfTask={numberOfTask} setChange={setChange}/>
+        <FunctionBar filter={filter} setFilter={setFilter} numberOfTask={taskStatus} setChange={setChange}/>
         <ManagerList filterTask={filterTask} setChange={setChange} filter={filter} mode={mode}/>
         <DateFilter mode={mode} setMode={setMode}/>
-        <FooterBar numberOfTask={numberOfTask}/>
+        <FooterBar numberOfTask={taskStatus}/>
       </NotificationContext.Provider>
     </div>
   )
