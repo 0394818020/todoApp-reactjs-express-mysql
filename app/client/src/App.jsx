@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import HomePage from './pages/homePage.jsx'
+import HomePage from './pages/HomePage.jsx'
 import NotFound from './pages/NotFound.jsx'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router'
 import './App.scss'
