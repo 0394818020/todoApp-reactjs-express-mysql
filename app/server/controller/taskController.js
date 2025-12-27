@@ -14,7 +14,7 @@ export default {
         } catch (err) {
 
             if (err.name = 'ER_DATA_TOO_LONG')
-                return res.status(500).json({ serverError : "Không vượt quá 255 kí tự!"};)
+                return res.status(500).json({ serverError : "Không vượt quá 255 kí tự!"});
 
             console.log(err);
             return res.status(500).json({ serverError : "Lỗi server"});
