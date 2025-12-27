@@ -25,21 +25,47 @@ function TaskCard({ title, date, id, setChange, status, completedDate, style}) {
     const saveEdit = async () => {
         const res = await taskServices.update(id, newTitle);
         notify(res);
-        setChange();
         setEdit(false);
+
+        if (!res.ok)
+            return null;
+
+        setChange(prev => prev.map(task => {
+            if (task.id === res.newTask.id) {
+                if (task.title !== res.newTask.title)
+                    return {...res.newTask, status : task.status};
+                else 
+                    return task;
+            }
+            else
+                return task;
+        }));
+        
     }
 
     const deleteTask = async () => {
         const res = await taskServices.delete(id);
         setPermission(false);
         notify(res);
-        setChange();
+
+        if (!res.ok)
+            return null;
+
+        setChange(prev => prev.filter(task => task.id !== id));
     }
 
     const finishTask = async () => {
         const res = await taskServices.finishTask(id);
         notify(res)
-        setChange();
+
+        if (!res.ok)
+            return null;
+
+        setChange(prev => prev.map(task => {
+            if (task.id === id)
+                return { ...task, status : 'completed', completed_at : Date.now()};
+            return task;
+        }));
     } 
 
   return (

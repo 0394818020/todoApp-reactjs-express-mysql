@@ -44,6 +44,6 @@ export default {
             headers: {"Content-Type": "application/json"}
         }
 
-        return await Fetch(import.meta.env.VITE_FINSIH + `/${id}`, options);
+        return await Fetch(import.meta.env.VITE_FINISH + `/${id}`, options);
     }
 }

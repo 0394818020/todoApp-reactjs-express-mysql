@@ -21,8 +21,9 @@ function HomePage() {
     const [mode, setMode] = useState('ascending');
 
     // function
-    const setChange = () => {
-      tasksFetch();
+    const setChange = (newList) => {
+      // tasksFetch();
+      setList(prev => newList(prev));
     }
 
     useEffect(() => {

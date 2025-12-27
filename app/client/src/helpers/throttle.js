@@ -4,10 +4,10 @@ function throttle(callback, delay, loading, isLoading) {
     if (loading)
         return;
 
-    isLoading(true);
-    
     callback();
 
+    isLoading(true);
+    
     setTimeout(() => isLoading(false), delay);
 }
 

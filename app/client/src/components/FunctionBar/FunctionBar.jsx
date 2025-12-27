@@ -15,8 +15,6 @@ function FunctionBar({ filter, setFilter, numberOfTask, setChange }) {
 
     const deBounceValue = useDebounce(task, 200);
 
-    
-
     //validate
 
     //function
@@ -32,10 +30,31 @@ function FunctionBar({ filter, setFilter, numberOfTask, setChange }) {
     }
 
     const addTask = async (task) => {
+        setChange(prev => [{
+            id : 'temp',
+            title : task,
+            created_at : Date.now(),
+            status : 'active',
+            completed_at : null
+        }, ...prev]);
         const res = await taskServices.add(task);
+
         notify(res);
         setTask('');
-        setChange();
+
+        if (!res.newTask) {
+            setChange(prev => prev.filter(task => 
+                task.id !== 'temp'
+            ))
+
+            return null;
+        }
+
+        setChange(prev => prev.map(task => 
+            task.id === 'temp' ? res.newTask : task
+        ));
+
+        // setChange();
     }
 
     const selectFilter = async (string) => {

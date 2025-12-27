@@ -8,10 +8,14 @@ export default {
             return res.status(400).json({ message : "Không được bỏ trống!"});
 
         try {
-            await task.add(title);
+            const newTask = await task.add(title);
 
-            return res.status(200).json({ message : "Thêm thành công!"});
+            return res.status(200).json({ message : "Thêm thành công!", newTask});
         } catch (err) {
+
+            if (err.name = 'ER_DATA_TOO_LONG')
+                return res.status(500).json({ serverError : "Không vượt quá 255 kí tự!"};)
+
             console.log(err);
             return res.status(500).json({ serverError : "Lỗi server"});
         }
@@ -50,9 +54,9 @@ export default {
             return res.status(401).json({ clientError : "Không được bỏ trống!"});
 
         try {
-            await task.update(id, title);
+            const newTask = await task.update(id, title);
 
-            res.status(201).json({ message : "Sửa thành công!"});
+            res.status(201).json({ message : "Sửa thành công!", newTask});
         } catch (err) {
             console.log(err);
             res.status(500).json({ serverError : "Lỗi server"});
