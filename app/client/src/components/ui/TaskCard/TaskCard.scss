@@ -28,6 +28,9 @@
 
         .title {
             font-size: 22px;
+            width: 400px;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .date {

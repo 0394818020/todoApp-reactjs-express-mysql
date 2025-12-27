@@ -13,7 +13,7 @@ function useNotify() {
         if (!res.ok) {
             if (res?.clientError)
                 return setNoti({ type : "Warning", message : res?.clientError});
-            return setNoti({ type : "Error", message : res?.message || "Có lỗi xảy ra"})
+            return setNoti({ type : "Error", message : res?.serverError || "Có lỗi xảy ra"})
         }
             
 

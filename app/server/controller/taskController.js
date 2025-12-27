@@ -7,6 +7,9 @@ export default {
         if (!title)
             return res.status(400).json({ message : "Không được bỏ trống!"});
 
+        if (title.length > 60)
+            return res.status(400).json({  clientError : "Không được vượt quá 60 kí tự!" })
+
         try {
             const newTask = await task.add(title);
 
