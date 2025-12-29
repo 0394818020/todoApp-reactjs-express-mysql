@@ -1,5 +1,8 @@
 
 ```
+javascript : express, dotenv, cors, bcrypt, nodemon, jsonwebtoken
+
+
 todo-app
 └─ app
    ├─ client
