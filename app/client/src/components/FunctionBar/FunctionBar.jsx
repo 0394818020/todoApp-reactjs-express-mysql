@@ -25,7 +25,7 @@ function FunctionBar({ filter, setFilter, numberOfTask, setChange }) {
 
     const handleKeyPress = (e) => {
         if (e.key==='Enter'){
-            addTask(task);
+            return () => throttle(() =>addTask(task), 400, loading, isLoading);
         }     
     }
 
