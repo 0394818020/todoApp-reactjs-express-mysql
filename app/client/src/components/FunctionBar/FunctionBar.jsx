@@ -25,7 +25,7 @@ function FunctionBar({ filter, setFilter, numberOfTask, setChange }) {
 
     const handleKeyPress = (e) => {
         if (e.key==='Enter'){
-            return () => throttle(() =>addTask(task), 400, loading, isLoading);
+            addTask(task);
         }     
     }
 
@@ -76,7 +76,7 @@ function FunctionBar({ filter, setFilter, numberOfTask, setChange }) {
                 value={task}
                 onChange={handleInput} 
                 placeholder='Cần phải làm gì?'
-                onKeyDown={handleKeyPress}
+                onKeyDown={() => throttle(() => handleKeyPress, 600, loading, isLoading)}
             />
 
             <button 
