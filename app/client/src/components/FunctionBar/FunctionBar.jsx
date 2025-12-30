@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './FunctionBar.scss'
 import taskServices from '../../services/taskServices.js';
 import useNotify from '../../hooks/useNotify.jsx';
@@ -19,13 +19,25 @@ function FunctionBar({ filter, setFilter, numberOfTask, setChange }) {
 
     //function
 
+    useEffect(() => {
+        const timer = setTimeout(() => isLoading(false), 2000);
+
+        return () => clearTimeout(timer);
+    }, [loading]);
+
     const handleInput = (e) => {
         setTask(e.target.value);
     }
 
-    const handleKeyPress = (e) => {
+    const handleKeyPress = async (e) => {
         if (e.key==='Enter'){
-            addTask(task);
+
+            if (loading)
+                return null;
+
+            isLoading(true);
+
+            await addTask(task);
         }     
     }
 
@@ -76,12 +88,12 @@ function FunctionBar({ filter, setFilter, numberOfTask, setChange }) {
                 value={task}
                 onChange={handleInput} 
                 placeholder='Cần phải làm gì?'
-                onKeyDown={() => throttle(() => handleKeyPress, 600, loading, isLoading)}
+                onKeyDown={handleKeyPress}
             />
 
             <button 
-                disabled={!deBounceValue} 
-                onClick={() => throttle(() => addTask(task), 600, loading, isLoading)}
+                disabled={!deBounceValue}
+                onClick={() => throttle(() => addTask(task), 1000, loading, isLoading)}
             >Thêm</button>
         </div>
 
