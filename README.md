@@ -1,7 +1,7 @@
 
 ```
-javascript : express, dotenv, cors, bcrypt, nodemon, jsonwebtoken
-
+frameworks : expressjs, reactjs
+libs : react-router, dotenv, nodemon, mysql2, cors
 
 todo-app
 └─ app
